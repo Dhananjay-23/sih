@@ -1,9 +1,11 @@
 // AboutPage.js
 
 import React from 'react';
+import { useNavigate, useLocation } from "react-router-dom";
 import './AboutPage.css'; // Import your CSS file for styling
 
 const AboutPage = () => {
+    
   return (
     <div className="about-page">
       <div className="section">
