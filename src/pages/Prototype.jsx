@@ -105,20 +105,21 @@ import { MapContainer, TileLayer, Polyline } from "react-leaflet";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue } from "firebase/database";
 import Alert from "./Alert"; // Import the updated Alert component
+import { database } from './firebase';
 
 // ... (your other imports)
-const firebaseConfig = {
-    apiKey: "AIzaSyCNGtGxMq0SplaNCEZKF02xSo6G8ZUPP5c",
-    authDomain: "sihnode.firebaseapp.com",
-    databaseURL: "https://sihnode-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "sihnode",
-    storageBucket: "sihnode.appspot.com",
-    messagingSenderId: "213651984141",
-    appId: "1:213651984141:web:8313e5d7faa2cac9b1ea44",
-  };
+// const firebaseConfig = {
+//     apiKey: "AIzaSyCNGtGxMq0SplaNCEZKF02xSo6G8ZUPP5c",
+//     authDomain: "sihnode.firebaseapp.com",
+//     databaseURL: "https://sihnode-default-rtdb.europe-west1.firebasedatabase.app",
+//     projectId: "sihnode",
+//     storageBucket: "sihnode.appspot.com",
+//     messagingSenderId: "213651984141",
+//     appId: "1:213651984141:web:8313e5d7faa2cac9b1ea44",
+//   };
   
-  const app = initializeApp(firebaseConfig);
-  const database = getDatabase(app);
+//   const app = initializeApp(firebaseConfig);
+//   const database = getDatabase(app);
   
 const Prototype = () => {
   const [values, setValues] = useState({
@@ -137,7 +138,7 @@ const Prototype = () => {
         setValues({
           sensor1: data.sensor1,
           sensor2: data.sensor2,
-          difference: data.Diffrence,
+          difference: data.Difference,
         });
       }
     });
