@@ -50,6 +50,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Nav.css'; // Import your CSS file for styling
 
+
+
+
+
 const Navbar = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -66,7 +70,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbar-brand">
-        <span>My App</span>
+        <span>Drain Defenders</span>
       </div>
 
       <div className={`menu-toggle ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
@@ -86,10 +90,10 @@ const Navbar = () => {
           Trends
         </div>
         <div className="nav-item" onClick={() => navigateTo('/grievance')}>
-          Grievance
+        Grievance
         </div>
         <div className="nav-item" onClick={() => navigateTo('/prototype')}>
-          Prototype
+        Prototype
         </div>
       </div>
     </div>
@@ -97,4 +101,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
