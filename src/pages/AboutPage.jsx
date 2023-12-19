@@ -11,15 +11,15 @@ const AboutPage = () => {
       <div className="section">
         <img src="/path/to/image1.jpg" alt="Image 1" />
         <div className="text">
-          <h2>Title 1</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <h2>Elevating water infrastructure with cutting-edge technology. The platform which pioneers precise solutions for predicting and preventing underground pipeline leakages.</h2>
+          <p></p>
         </div>
       </div>
 
       <div className="section">
         <div className="text">
-          <h2>Title 2</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <h2>Join us on a transformative journey toward sustainable water management. Our initiative blends technology and engineering excellence, utilizing advanced sensors to enhance efficiency and resilience in water infrastructure. Precision, reliability, and environmental stewardship define our approach.</h2>
+          <p></p>
         </div>
         <img src="/path/to/image2.jpg" alt="Image 2" />
       </div>
@@ -27,8 +27,8 @@ const AboutPage = () => {
       <div className="section">
         <img src="/path/to/image3.jpg" alt="Image 3" />
         <div className="text">
-          <h2>Title 3</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <h2>Dive into a hub of groundbreaking water infrastructure advancements. Our mission is to revolutionize water management through predictive analytics. Empowering stakeholders with sensor data, we minimize disruptions, conserve resources, and shape a sustainable future for vital water networks.</h2>
+          <p></p>
         </div>
       </div>
     </div>
@@ -36,3 +36,5 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+
+      

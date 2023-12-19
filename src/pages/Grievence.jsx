@@ -1,9 +1,14 @@
-import React from 'react'
+// Example usage in another React component or container
 
-function Grievence() {
+import React from 'react';
+import GrievanceForm from './Grievence';
+
+const App = () => {
   return (
-    <div>Grievence</div>
-  )
-}
+    <div>
+      <GrievanceForm />
+    </div>
+  );
+};
 
-export default Grievence
+export default App;
