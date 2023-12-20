@@ -1,4 +1,3 @@
-
 // // import React, { useState } from 'react';
 // // import { useNavigate } from 'react-router-dom';
 // // import './Nav.css'; // Import your CSS file for styling
@@ -83,6 +82,7 @@ import { useNavigate,Link } from 'react-router-dom';
 import './Nav.css'; // Import your CSS file for styling
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { set } from 'firebase/database';
 
 
 
@@ -98,20 +98,28 @@ const Navbar = () => {
 
   useEffect(() => {
     const isAdmin = localStorage.getItem('isAdmin');
+    console.log('isAdmin', isAdmin);
 
-    if (isAdmin === 'true') {
+    if (isAdmin == 'true') {
       setAdmin(true);
       console.log('User is an admin');
     } else {
       console.log('User is not an admin');
-            setAdmin(false);
+      setAdmin(false);
     }
-  }, []);
+  }, [admin]);
 
   const navigateTo = (path) => {
     navigate(path);
     setIsMenuOpen(false); // Close the menu after navigating
   };
+
+  const logout = () => { 
+    localStorage.removeItem('isAdmin');
+    setAdmin(false);
+    navigateTo('/');
+    window.location.reload();
+  }
 
   return (
     <div className="navbar">
@@ -132,7 +140,7 @@ const Navbar = () => {
 
         <div className="nav-item dropdown">
        
-         <a className="nav-link dropdown-toggle"
+         <Link className="nav-link dropdown-toggle"
             href="#"
             id="navbarDropdown"
             role="button"
@@ -140,7 +148,7 @@ const Navbar = () => {
             aria-expanded="false"
           >
             Maps
-          </a>
+          </Link>
           <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
           <li><div class="dropdown-item" href="#" onClick={() => navigateTo('/NewMap')}>Using Co-ordinates</div></li>
             <li><div class="dropdown-item" href="#" onClick={() => navigateTo('/NewMap1')}>Draw Maps</div></li>
@@ -148,24 +156,28 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="nav-item" onClick={() => navigateTo('/grievenceMap')}>
+        {admin && <div className="nav-item" onClick={() => navigateTo('/grievenceMap')}>
           Grievence Map
-        </div>
-        {admin && <div className="nav-item" onClick={() => navigateTo('/grievance')}>
-          Grievance
         </div>}
+         <div className="nav-item" onClick={() => navigateTo('/grievance')}>
+          Grievance
+        </div>
         <div className="nav-item" onClick={() => navigateTo('/prototype')}>
           Prototype
         </div>
-        <div className="nav-item" onClick={() => navigateTo('/login')}>
+        {localStorage.getItem('isAdmin')==null && <div className="nav-item" onClick={() => navigateTo('/login')}>
           <button type="button" className="btn btn-primary login-button" onClick={() => navigateTo('/login')}>
             Login
           </button>
-        </div>
+        </div>}
+        {localStorage.getItem('isAdmin')!=null && <div className="nav-item">
+          <button type="button" className="btn btn-primary login-button" onClick={logout}>
+            logout
+          </button>
+        </div>}
       </div>
     </div>
   );
 };
 
 export default Navbar;
-

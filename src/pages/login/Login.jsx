@@ -52,6 +52,7 @@ const LoginForm = () => {
           // Handle login failure
         }
         navigate('/')
+        window.location.reload();
       } catch (error) {
         console.error('Error during login:', error.message);
       }
