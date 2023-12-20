@@ -104,6 +104,7 @@ const Navbar = () => {
       console.log('User is an admin');
     } else {
       console.log('User is not an admin');
+            setAdmin(false);
     }
   }, []);
 
