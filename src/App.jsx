@@ -15,7 +15,7 @@ import NewMap from './pages/NewMap'
 import NewMap1 from './pages/NewMap1'
 import NewMap2 from './pages/NewMap2'
 import GrievenceMap from './pages/GrievenceMap'
-
+import Login from './pages/login/Login.jsx'
 
 
 function App() {
@@ -32,6 +32,7 @@ function App() {
             <Route path='/newMap' element={<NewMap/>}></Route>
             <Route path='/newMap1' element={ <NewMap1/> }></Route>
             <Route path='/newMap2' element={<NewMap2 /> }></Route>
+            <Route path='/login'  element={<Login/>}></Route>
         </Routes>
     <Foot/>
     </BrowserRouter>
