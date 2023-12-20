@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import "./Alert.css"; // Import the CSS file
 
 const Alert = ({ difference }) => {
-  const [showPopup, setShowPopup] = useState(difference < 1); // change this codition. This is just for testing purpose.
+  const [showPopup, setShowPopup] = useState(difference > 5); // change this codition. This is just for testing purpose.
 
   const closePopup = () => {
     setShowPopup(false);

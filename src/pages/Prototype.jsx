@@ -102,7 +102,7 @@
 import React, { useState, useEffect } from "react";
 import L from "leaflet";
 import { MapContainer, TileLayer, Polyline } from "react-leaflet";
-import { initializeApp } from "firebase/app";
+import './Prototype.css'
 import { getDatabase, ref, onValue } from "firebase/database";
 import Alert from "./Alert"; // Import the updated Alert component
 import { database } from './firebase';
@@ -151,28 +151,25 @@ const Prototype = () => {
   const center = [18.651738581062098, 73.76380526230817];
   const zoom = 20;
 
-  const getColor = () => {
-    // Set the color based on the difference value
-    if (values.difference > 10) {
-      return "red";
-    } else if (values.difference > 5) {
-      return "orange";
-    } else {
-      return "blue";
-    }
-  };
+  // const getColor = () => {
+  //   // Set the color based on the difference value
+  //   if (values.difference > 10) {
+  //     return "red";
+  //   } else if (values.difference > 5) {
+  //     return "orange";
+  //   } else {
+  //     return "blue";
+  //   }
+  // };
 
   return (
     <>
-      <div>
-        {console.log("Hello")}
-        <h1>Drain Defenders</h1>
-      </div>
+     
 
       {/* Display the Alert component with the pop-up */}
       <Alert difference={values.difference} />
 
-      <MapContainer center={center} zoom={zoom}>
+      {/* <MapContainer center={center} zoom={zoom}>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <Polyline
           positions={[
@@ -181,22 +178,26 @@ const Prototype = () => {
           ]}
           color={getColor()}
         />
-      </MapContainer>
-
-      <iframe
-        width="450"
-        height="260"
-        src="https://thingspeak.com/channels/2382352/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"
-      ></iframe>
-      <iframe
-        width="450"
-        height="260"
-        src="https://thingspeak.com/channels/2382352/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"
-      ></iframe>
-      <div id="sensordata">
-        <h1> Sensor 1 readings: {values.sensor1} </h1>
-        <h1> Sensor 2 readings: {values.sensor2} </h1>
-        <h1> Difference between them: {values.difference} </h1>
+      </MapContainer> */}
+      <div className="sensordata">
+<div className="plot">
+  <h1>Flow Sensor 1</h1>
+  <iframe width="450" height="260"  src="https://thingspeak.com/channels/2385539/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+      </div>
+      <div className="plot">
+      <h1>Gauge Meter</h1>
+      <iframe width="450" height="260"  src="https://thingspeak.com/channels/2385539/widgets/774329"></iframe>
+</div> 
+      <div className="plot">
+      <h1>Flow Sensor 2</h1>
+      <iframe width="450" height="260"  src="https://thingspeak.com/channels/2385539/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+</div> 
+    
+      </div>
+      <div className="sensordata">
+        <div className="card"><h1> Sensor 1 readings: {values.sensor1} </h1></div>
+        <div className="card"><h1> Sensor 2 readings: {values.sensor2} </h1></div>
+        <div className="card"><h1> Difference between them: {values.difference} </h1></div>
       </div>
     </>
   );
