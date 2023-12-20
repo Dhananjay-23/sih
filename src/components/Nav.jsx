@@ -78,7 +78,7 @@
 
 // // export default Navbar;
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate,Link } from 'react-router-dom';
 import './Nav.css'; // Import your CSS file for styling
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -93,6 +93,19 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const [admin,setAdmin] = useState(false);
+
+  useEffect(() => {
+    const isAdmin = localStorage.getItem('isAdmin');
+
+    if (isAdmin === 'true') {
+      setAdmin(true);
+      console.log('User is an admin');
+    } else {
+      console.log('User is not an admin');
+    }
+  }, []);
 
   const navigateTo = (path) => {
     navigate(path);
@@ -137,14 +150,14 @@ const Navbar = () => {
         <div className="nav-item" onClick={() => navigateTo('/grievenceMap')}>
           Grievence Map
         </div>
-        <div className="nav-item" onClick={() => navigateTo('/grievance')}>
+        {admin && <div className="nav-item" onClick={() => navigateTo('/grievance')}>
           Grievance
-        </div>
+        </div>}
         <div className="nav-item" onClick={() => navigateTo('/prototype')}>
           Prototype
         </div>
-        <div className="nav-item" onClick={() => navigateTo('/')}>
-          <button type="button" className="btn btn-primary login-button">
+        <div className="nav-item" onClick={() => navigateTo('/login')}>
+          <button type="button" className="btn btn-primary login-button" onClick={() => navigateTo('/login')}>
             Login
           </button>
         </div>
